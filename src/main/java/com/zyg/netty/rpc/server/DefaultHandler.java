@@ -22,16 +22,16 @@ public class DefaultHandler extends SimpleChannelInboundHandler<RPCContext> {
 
 	@Override
 	protected void channelRead0(final ChannelHandlerContext ctx, final RPCContext rpcContext) throws Exception {
-		if(RPCServer.getConfig().getBoolean("server.async")){
-			RPCServer.submit(new Runnable(){
-				@Override
-				public void run() {
-					processRequest(ctx,rpcContext);
-				}
-			});
-		}else{
-			processRequest(ctx,rpcContext);
-		}
+//		if(RPCServer.getConfig().getBoolean("server.async")){
+//			RPCServer.submit(new Runnable(){
+//				@Override
+//				public void run() {
+//					processRequest(ctx,rpcContext);
+//				}
+//			});
+//		}else{
+//			processRequest(ctx,rpcContext);
+//		}
 	}	
 
 	public void processRequest(ChannelHandlerContext ctx, RPCContext rpcContext){
